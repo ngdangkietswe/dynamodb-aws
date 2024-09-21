@@ -1,4 +1,4 @@
-package dev.ngdangkietswe.dynamodbaws.domains.common;
+package dev.ngdangkietswe.dynamodbaws.domains.common.repositories;
 
 import java.util.List;
 import java.util.Optional;

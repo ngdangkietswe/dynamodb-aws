@@ -1,5 +1,7 @@
-package dev.ngdangkietswe.dynamodbaws.domains.common;
+package dev.ngdangkietswe.dynamodbaws.domains.common.repositories;
 
+import dev.ngdangkietswe.dynamodbaws.annotations.DynamoAnnotation;
+import dev.ngdangkietswe.dynamodbaws.domains.common.entities.BaseDynamoEntity;
 import org.springframework.data.repository.NoRepositoryBean;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbTable;
@@ -19,7 +21,7 @@ public abstract class BaseDynamoRepository<E extends BaseDynamoEntity> implement
     private final DynamoDbTable<E> dynamoDbTable;
 
     public BaseDynamoRepository(DynamoDbEnhancedClient dynamoDbEnhancedClient, Class<E> clazz) {
-        this.dynamoDbTable = dynamoDbEnhancedClient.table(clazz.getSimpleName(), TableSchema.fromBean(clazz));
+        this.dynamoDbTable = dynamoDbEnhancedClient.table(clazz.getAnnotation(DynamoAnnotation.class).tableName(), TableSchema.fromBean(clazz));
     }
 
     @Override

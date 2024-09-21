@@ -1,8 +1,8 @@
 package dev.ngdangkietswe.dynamodbaws.domains.product.entities;
 
-import dev.ngdangkietswe.dynamodbaws.domains.common.BaseDynamoEntity;
+import dev.ngdangkietswe.dynamodbaws.annotations.DynamoAnnotation;
+import dev.ngdangkietswe.dynamodbaws.domains.common.entities.BaseDynamoEntity;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
@@ -19,7 +19,8 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 @AllArgsConstructor
 @SuperBuilder(setterPrefix = "set", builderMethodName = "newBuilder")
 @DynamoDbBean
-public class Product extends BaseDynamoEntity {
+@DynamoAnnotation(tableName = "Product")
+public class ProductEntity extends BaseDynamoEntity {
 
     private String name;
     private Double price;

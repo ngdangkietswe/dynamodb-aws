@@ -1,7 +1,7 @@
 package dev.ngdangkietswe.dynamodbaws.domains.product.repositories;
 
-import dev.ngdangkietswe.dynamodbaws.domains.common.BaseDynamoRepository;
-import dev.ngdangkietswe.dynamodbaws.domains.product.entities.Product;
+import dev.ngdangkietswe.dynamodbaws.domains.common.repositories.BaseDynamoRepository;
+import dev.ngdangkietswe.dynamodbaws.domains.product.entities.ProductEntity;
 import org.springframework.stereotype.Repository;
 import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
 
@@ -11,9 +11,9 @@ import software.amazon.awssdk.enhanced.dynamodb.DynamoDbEnhancedClient;
  */
 
 @Repository
-public class ProductRepository extends BaseDynamoRepository<Product> {
+public class ProductRepository extends BaseDynamoRepository<ProductEntity> {
 
     public ProductRepository(DynamoDbEnhancedClient dynamoDbEnhancedClient) {
-        super(dynamoDbEnhancedClient, Product.class);
+        super(dynamoDbEnhancedClient, ProductEntity.class);
     }
 }
